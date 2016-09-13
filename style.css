@@ -1,0 +1,107 @@
+*{
+text-align: center;
+overflow-x: hidden;
+}
+
+
+.content:before {
+text-align: center;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  
+  display: block;
+  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+
+
+input{
+background-color: rgba(255, 255, 255, 0.3);
+color: rgba(255, 255, 255, 1);
+}
+
+h1{
+text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: auto;
+  position: relative;
+  width:50%;
+  left:25%;
+  margin: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  padding:5px;
+  box-shadow: 0 0 5px gray;
+}
+
+i{
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+padding: 15px;
+margin: 20px;
+}
+
+fieldset{
+color: rgba(255, 255, 255, 0.8);
+border-color: rgba(255, 255, 255, 0.8);
+}
+
+b{
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+padding: 15px;
+margin: 20px;
+}
+
+p{
+text-align: center;
+color: rgba(255, 255, 255, 0.8);
+padding: 15px;
+margin: 20px;
+}
+
+button{
+background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 10px 10px;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: white;
+}
+.content {
+  overflow: auto;
+  position: relative;
+  width:50%;
+  left:25%;
+  
+  margin: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  box-shadow: 0 0 5px gray;
+}
+
+// useless after this point, example
+
