@@ -1,4 +1,4 @@
-*{
+* {
 text-align: center;
 overflow-x: hidden;
 }
@@ -31,12 +31,12 @@ text-align: center;
 
 input{
 background-color: rgba(255, 255, 255, 0.3);
-color: rgba(155, 155, 155, 1);
+color: rgba(255, 255, 255, 1);
 }
 
 h1{
 text-align: center;
-  color: rgba(155, 155, 155, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   overflow: auto;
   position: relative;
   width:50%;
@@ -49,26 +49,26 @@ text-align: center;
 
 i{
 text-align: center;
-color: rgba(155, 155, 155, 0.8);
+color: rgba(255, 255, 255, 0.8);
 padding: 15px;
 margin: 20px;
 }
 
 fieldset{
-color: rgba(155, 155, 155, 0.8);
+color: rgba(255, 255, 255, 0.8);
 border-color: rgba(255, 255, 255, 0.8);
 }
 
 b{
 text-align: center;
-color: rgba(155, 155, 155, 0.8);
+color: rgba(255, 255, 255, 0.8);
 padding: 15px;
 margin: 20px;
 }
 
 p{
 text-align: center;
-color: rgba(155, 155, 155, 0.8);
+color: rgba(255, 255, 255, 0.8);
 padding: 15px;
 margin: 20px;
 }
@@ -77,7 +77,7 @@ button{
 background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	border-radius: 10px 10px;
-    color: rgba(155, 155, 155, 0.8);
+    color: white;
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
@@ -102,6 +102,3 @@ button:hover {
   padding: 5px;
   box-shadow: 0 0 5px gray;
 }
-
-// useless after this point, example
-
