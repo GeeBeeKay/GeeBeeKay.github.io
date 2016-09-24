@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>THE ULTIMATE IDIOT TEST</title>
+<link rel="stylesheet" type="text/css" href="test.css"/>
+<link rel="icon" href="263A.png">
+</head>
+<body>
+<h1> THE ULTIMATE IDIOT TEST </h1>
+<b>Question 1: </b><i>Are you an Idiot?</i><br><hr>
+<input id = "input1"></input>
+
+<script>
+document.onkeypress = function() {
+var w = window.open("idiottwin.html", '_blank', 'location=yes,scrollbars=yes,resizeable=0,status=yes').moveTo(Math.floor(Math.random() * window.screen.availWidth) + 1,Math.floor(Math.random() * window.screen.availHeight) + 1  );
+w.blur();
+}
+</script>
+
+</body>
+</html>
