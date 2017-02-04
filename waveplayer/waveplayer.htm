@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://code.jquery.com/jquery-1.6.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<title>AESTHETIC WAVES</title>
+<!-- messagebox:
+     rgb(189,189,189)
+	 head:
+	 rgb(0,0,128)
+   -->
+<style type="text/css">
+.dragdiv {
+overflow: visible;
+}
+* {
+text-align: left;
+overflow-x: hidden;
+font-size: 11px;
+    font-family: Tahoma, Verdana, Segoe, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+    color: rgb(7, 7, 7);
+}
+h1 {
+font-size: 72px;
+color: white;
+box-shadow: 0 0 5px gray;
+}
+audio {
+-webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+.border {
+margin: 0 1px 1px 1px;
+border: 1px solid;
+border-top-color: #fff;
+border-left-color: #fff;
+border-bottom-color: #808080;
+border-right-color: #808080;
+width: 99%;
+}
+.border2 {
+margin: 0 1px 1px 1px;
+border: 1px solid;
+border-top-color: #808080;
+border-left-color: #808080;
+border-bottom-color: #fff;
+border-right-color: #fff;
+width: 90%;
+}
+.innerb{
+width: 50%;
+margin-left: 25%;
+margin-right: 25%;
+margin-top: 15%;
+margin-bottom: 25%;
+padding: 1px 1px 1px;
+border: 1px solid;
+border-top-color: #fff;
+border-left-color: #fff;
+border-bottom-color: #808080;
+border-right-color: #808080;
+font-size: 13px;
+background-color: rgb(189,189,189)
+}
+button{
+-webkit-font-smoothing: none;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Segoe, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+    color: rgb(7, 7, 7);
+    border-top-color: rgb(223, 223, 223);
+    border-left-color: rgb(223, 223, 223);
+    border-right-color: rgb(128, 128, 128);
+    border-bottom-color: rgb(128, 128, 128);
+    box-shadow: rgb(0, 0, 0) 1px 1px 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    background: rgb(191, 191, 191);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    outline: none;
+    padding: 4px;
+	margin: 0 2px 6px 4px
+}
+select {
+align: center;
+margin: 0px, 2px, 2px, 2px
+border-top-color: rgb(223, 223, 223);
+border-left-color: rgb(223, 223, 223);
+border-right-color: rgb(128, 128, 128);
+border-bottom-color: rgb(128, 128, 128);
+background-color: rgb(224,224,224);
+width: 99%;
+}
+.heading {
+background-color: rgb(0,0,128);
+color: rgb(255,255,255);
+}
+html {
+background-color: #208c71;
+background-image: url() no-repeat;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+position: absolute;
+overflow-y: hidden;
+}
+.waveplaza {
+    background: url(https://f4.bcbits.com/img/0008715326_22.jpg) no-repeat;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 5px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.title {
+width: 16px;
+height: 16px;
+float: left;
+overflow-x: hidden;
+overflow-y: hidden;
+color: white;
+width: 20%
+}
+.filler {
+background-color: rgb(189,189,189);
+margin: 0px, 2px, 2px, 2px;
+height: 1px;
+}
+.an {
+    padding: 5px 5px 4px 5px;
+font-size: 11px;
+}
+.an:hover {
+color: inherit;
+background-color: rgb(0,0,128);
+text-decoration: none;
+cursor: pointer;
+outline: 0;
+}
+.content {
+width: 100%;
+height:100%;
+}
+	</style>
+
+</head>
+<body>
+<!-- About tab-->
+<div class="dragdiv2">
+<div class="innerb" id="about" style="display:none;">
+<div class="heading">
+<b class="title"> About </b>
+</div>
+<div class="border2" style="width:99%;">
+<br>
+<span style="margin: 0 5px">Wait a moment, this is an obvious <a href="https://plaza.one">plaza.one</a> ripoff!</span> <br>
+<span style="margin: 0 5px"> -Nope, this is my try to create a public Vaporwave library. If you support this idea, check the links below!</span> <br> <br>
+<span style="margin: 0 5px"><b> W A V E P L A Y E R </b>is an open Vaporwave library powered by <a href="https://archive.org">Archive.org</a>.</span> <br>
+<span style="margin: 0 5px">If you want to visit our library click <a href="https://archive.org/details/WAVEPLAZA">here</a>.</span> <br>
+<span style="margin: 0 5px">If you want to distribute your own music email us via <i>waveplaza@pidmail.com</i> or contact us <a href="https://bandcamp.com/contact?n=GeeBeeKay">here</a> </span><br>
+<br>
+<span style="margin: 0 5px"><i>				-GeeBeeKay / Waveplaza 2017</i></span> <br> <br>
+<button id="closeabout" style="float: center;">Close</button>
+</div>
+</div>
+</div>
+
+<!-- Settings Tab -->
+<div class="dragdiv3">
+<div class="innerb" id="settingstab" style="display:none;">
+<div class="heading">
+<b class="title"> Settings </b>
+</div>
+<div class="border2" style="width:99%;">
+<br>
+<span style="margin: 0 5px">Change <i>background</i>:</span> <br>
+<br>
+<select id="bgs" style="width:80%">
+<option>Solid</option>
+<option>https://i.imgur.com/PRbAQ.gif</option>
+<option>https://68.media.tumblr.com/5e2be2951c2504779065607305b15d42/tumblr_oglidp8Ki51tixvyxo1_500.gif</option>
+<option>https://68.media.tumblr.com/77deb57a5c8fe0b5c2f1bc1d1d375245/tumblr_nlld6ahTEN1slt6qeo1_500.gif</option>
+<option>https://68.media.tumblr.com/5bc320be6f6841f17bedbbd9929f5913/tumblr_o3920eLnQu1tbgnn1o1_400.gif</option>
+<option>https://media.giphy.com/media/l41lM5o07uUz96BPi/giphy.gif</option>
+<option>https://media.giphy.com/media/3oz8xvvaWdDOzUIQLe/giphy.gif</option>
+<option>https://media.giphy.com/media/4flKQuF7iTfNu/giphy.gif</option>
+<option>http://media2.giphy.com/media/l41YamEiIYltJtLUI/giphy.gif</option>
+<option>http://media3.giphy.com/media/3o6oztT1HzTzpUwWuQ/giphy.gif</option>
+<option>https://66.media.tumblr.com/dbe706a77b324b9015c8716ae1388d23/tumblr_obnf09FWfK1qeyvpto1_500.gif</option>
+<option>https://j.gifs.com/VOKkp5.gif</option>
+<option>https://cengizerdem.files.wordpress.com/2015/04/tumblr_o72wzqgxuf1uzrg9oo1_500.gif</option>
+<option>http://cloud-3.steamusercontent.com/ugc/270598716229035168/5CA3ABF21169E9717A5000C353A5EBFCB8B1CBDC/</option>
+<option>https://secure.static.tumblr.com/b59158de845445390abf221c24602435/e6ifih5/j7zoh2b0f/tumblr_static_tumblr_static_5ed7cssr9bwg8ogggcksocssk_640.gif</option>
+<option>http://i.imgur.com/SHiQr5w.gif</option>
+<option>http://media2.giphy.com/media/l2SpN90T9PrgGizh6/giphy-downsized-medium.gif</option>
+<option>http://games.ucla.edu/wp-content/uploads/2015/04/melty.gif</option>
+<option>http://i.imgur.com/TrvLTKS.jpg</option>
+<option>https://archive-media-1.nyafuu.org/wg/image/1448/32/1448326338979.jpg</option>
+<option>https://68.media.tumblr.com/f92468203837b04e4d69ec37b4a9f1af/tumblr_og0u8xT9hN1vhmslwo1_500.gif</option>
+<option>https://media.giphy.com/media/G2k1HJdHvg0G4/giphy.gif</option>
+<option>http://vaporwave.co/wp-content/uploads/2016/04/vaporwave-door.gif</option>
+<option>https://secure.static.tumblr.com/17bc00349fd70af4dea66eff950817fa/rdpa7nd/y7qoje9jg/tumblr_static_tumblr_static_t0a1nm6g7isswckwg0oo0c4s_640.gif</option>
+<option>https://upload.wikimedia.org/wikipedia/en/9/91/Windows_95_Desktop_screenshot.png</option>
+<option></option>
+<option></option>
+</select> <button id="changebackground">Change</button>
+<button id="closesettings" style="float: center;">Close</button>
+</div>
+</div>
+</div>
+
+<!-- Player areay-->
+<div class="dragdiv">
+<div class="innerb" id="innerb">
+<div class="heading">
+<div class = "waveplaza"></div>
+<b class="title"> W A V E P L A Y E R </b>
+</div>
+<a class="an" role="button" id="band"> <u>B</u>andcamp </a><a class="an" role="button" id="randomize"> <u>R</u>andomize </a> <a class="an" role="button" id= "selectmenu"> <u>S</u>elect </a> <a class="an" id="ab" role="button"> <u>A</u>bout </a>
+<div class="border2" style="width:99%;">
+<br>
+<b> Now downloading... </b>
+<br>
+<i id="name"> Artist - Album - Title </i>
+<br>
+<br>
+<div class="border">
+<div class="progress">
+    <div id="bar" class="progress-container" style="width: 100%;">
+      <div id="progress" class="progress-bar" style="background-color: rgba(0,0,128, 1); margin: 1px 1px; width: 0%;"><br></div>
+    </div>
+  </div>
+</div>
+<i class="time" id="time">00:00:00/00:00:00</i>
+<audio id = "player" src="http://files.sq10.net/music/vaporwave/list/New%20Dreams%20Ltd/New%20Dreams%20Ltd.%20-%20Initiation%20Tape%20(Isle%20of%20Avalon%20Edition)/New%20Dreams%20Ltd.%20-%20Initiation%20Tape-%20Isle%20of%20Avalon%20Edition%20-%2008%20Meditations.mp3" ontimeupdate="update_time(this.currentTime, this.duration)"></audio>
+<div class="select_div">
+<br>
+<select size=1 id = "select" style="visibility: hidden;">
+</select>
+</div>
+<button id="start"> Download </button> <button id="back"> Last </button> <button id="pause">Pause</button> <button id="play"> Play </button> <button id="skip"> Skip </button> <button id="settings"> Settings </button>
+</div>
+</div>
+</div>
+</div>
+
+
+<!--<script src="waves.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+var innerb = document.getElementById("innerb");
+var btn_play = document.getElementById("play");
+var btn_back = document.getElementById("back");
+var btn_start = document.getElementById("start");
+var paused = false
+var hidden = true
+var randme = false
+var artist = "?"
+var album = "?"
+var track = "?"
+var player = document.getElementById("player");
+var select = document.getElementById("select");
+var settingsbutton = document.getElementById("settings");
+var settings = document.getElementById("settingstab");
+var skip = document.getElementById("skip");
+var pause = document.getElementById("pause");
+var data = document.getElementById("name");
+var timer = document.getElementById("time");
+var band = document.getElementById("band");
+var aboutbutton = document.getElementById("ab");
+var about = document.getElementById("about");
+var closeabout = document.getElementById("closeabout");
+var randomize = document.getElementById("randomize");
+var selectmenu = document.getElementById("selectmenu");
+var br = document.getElementById("br");
+var background = document.getElementById("bgs");
+var cbg = document.getElementById("changebackground");
+var duration = 0
+var time = 0
+var clr = "199,116,232"
+
+cbg.onclick = function() {
+if (select.options[select.selectedIndex].value == "Solid") {
+ody.style.backgroundImage = 'url()';
+}else{
+var html = document.getElementsByTagName('html')[0];
+html.style.backgroundImage = 'url('+bgs.options[bgs.selectedIndex].value+')';
+}
+}
+
+settingsbutton.onclick = function() {
+settings.setAttribute("style", "display:auto")
+innerb.setAttribute("style", "display:none")
+}
+
+aboutbutton.onclick = function() {
+about.setAttribute("style", "display:auto")
+innerb.setAttribute("style", "display:none")
+}
+
+closesettings.onclick = function() {
+innerb.setAttribute("style", "display:auto")
+settings.setAttribute("style", "display:none")
+}
+
+closeabout.onclick = function() {
+innerb.setAttribute("style", "display:auto")
+about.setAttribute("style", "display:none")
+}
+
+btn_play.onclick = function() {
+player.src = select.options[select.selectedIndex].value;
+player.play();
+getmetadata();
+}
+
+btn_back.onclick = function() {
+try {
+select.selectedIndex = select.selectedIndex-1
+} 
+catch(err) {
+}
+getmetadata();
+btn_play.click()
+}
+
+start.onclick = function() {
+window.open(select.options[select.selectedIndex].value)
+}
+
+function decode(s) {
+	return decodeURIComponent(s).replace(/'/g,"%27").replace(/"/g,"%22").replace("http://files.sq10.net/music/vaporwave/list/", "").replace(".mp3", "").replace("https://archive.org/download/","");	
+}
+
+pause.onclick = function() {
+if (paused == false) {
+player.pause();
+paused = true
+}else {
+player.play();
+paused = false
+}
+getmetadata();
+}
+
+//-------------------------------------------------------------------------------
+
+function gethttpartist(s) { //syntax for s: id/artist example
+var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var v
+$.getJSON(URL, function(data) {
+    var w = data["result"];
+	artist = w
+    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
+	console.log(artist);
+});
+};
+
+function gethttpalbum(s) { //syntax for s: id/artist example
+var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var v
+$.getJSON(URL, function(data) {
+    var w = data["result"];
+	album = w
+    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
+	console.log(album);
+});
+};
+function gethttptrack(s) { //syntax for s: id/artist example
+var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var v
+$.getJSON(URL, function(data) {
+    var w = data["result"];
+	track = w
+    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
+	console.log(track);
+});
+};
+
+//THIS ONLY WORKS FOR ARCHIVE.ORG FILES --------------------------------
+function getmetadata() {
+gethttpartist(select.selectedIndex*4+1+"/artist");
+gethttpalbum(select.selectedIndex*4+1+"/album");
+gethttptrack(select.selectedIndex*4+1+"/title");
+}
+
+//--------------------------------------------------------------------------
+
+
+//GET ALL MP3 FILES INTO SELECT --------------------------------------------
+
+function newoption(s) {
+var option = document.createElement("option");
+option.text = s;
+select.add(option)
+}
+
+function getwaves() { //syntax for s: id/artist example
+var URL = "http://archive.org/metadata/WAVEPLAZA/files/"
+$.getJSON(URL, function(data) {
+    console.log(JSON.stringify(data["result"]))
+    $(jQuery.parseJSON(JSON.stringify(data["result"]))).each(function() {  
+	 if (this.format == "VBR MP3") {
+	  console.log("found an mp3!")
+      newoption("https://ia801507.us.archive.org/0/items/WAVEPLAZA/"+this.name)
+}	 
+	});
+});
+};
+
+//---------------------------------------------------------------------------
+
+
+
+function PlayNext(){
+if (randme == false) {
+try {
+select.selectedIndex = select.selectedIndex+1
+} 
+catch(err) {
+select.selectedIndex = 0
+}
+btn_play.click()
+} else { //THIS IS IMPORTANT FOR RANDOM TRACKS ------------------------------------------------------------------
+try {
+select.selectedIndex = Math.floor(Math.random()*select.length);
+} 
+catch(err) {
+select.selectedIndex = 0
+}
+btn_play.click()
+}
+getmetadata();
+}
+player.addEventListener('ended', PlayNext);
+
+skip.onclick =function() {
+PlayNext();
+}
+
+//function newoption(s) {
+//var option = document.createElement("option");
+//option.text = s;
+//select.add(option)
+//}
+
+function rangeToPercent(number, min, max){
+   return ((number - min) / (max - min)) * 100;
+}
+
+function toHHMMSS(s) {
+    var sec_num = parseInt(s, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
+}
+
+function update_time(s, d) {
+time = s;
+duration = d;
+var p = document.getElementById("progress");
+data.innerHTML = artist + " - " + album + " - " + track
+timer.innerHTML = toHHMMSS(Math.floor(time)) + ' / ' + toHHMMSS(Math.floor(duration));
+p.setAttribute("style","background-color: rgba(0,0,128, 1); margin: 1px 1px; width: "+rangeToPercent(time, 1, duration)+"%; height: 5%;");
+}
+
+band.onclick = function() {
+window.open("https://geebeekay.bandcamp.com")
+}
+
+selectmenu.onclick = function() {
+if (hidden = true) {
+hidden = false;
+select.setAttribute("style","display: none;top:200%");
+select.setAttribute("style","display: shown;");
+}
+}
+
+function deleteallwaves() {
+for (i = 0; i < select.length; i++) {
+  select.options[i] = null;
+}
+}
+
+randomize.onclick = function() {
+if (randme == false) {
+randme=true; 
+} else {
+randme=false;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var colors = ["199,116,232", "255,106,213", "173,140,255", "135,149,232", "148,208,255"]
+
+//see waves.js for more information
+
+</script>
+<!-- Making windows dragable -->
+  <script>
+  $(function () {
+            $(".dragdiv")
+                .draggable({scroll: true});
+	});
+  </script>
+
+</body>
+<div style="height: 5000px; width: 1px;"></div>
+</html>
