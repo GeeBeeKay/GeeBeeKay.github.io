@@ -154,6 +154,21 @@ height:100%;
 
 </head>
 <body>
+<!-- Start Tab -->
+<div class="dragdiv2">
+<div class="innerb" id="start_div" style="display:auto;">
+<div class="heading">
+<b class="title"> Welcome to W A V E P L A Z A </b>
+</div>
+<div class="border2" style="width:99%;">
+<br>
+<span style="margin: 0 5px">Welcome to the virtual plaza. Enjoy your stay.</span> <br>
+<span style="margin: 0 5px"><b>Current status: </b><i id="status">idle</i></span><br>
+<button id="closestart" style="float: center;">Continue</button>
+</div>
+</div>
+</div>
+
 <!-- About tab-->
 <div class="dragdiv2">
 <div class="innerb" id="about" style="display:none;">
@@ -220,7 +235,7 @@ height:100%;
 
 <!-- Player areay-->
 <div class="dragdiv">
-<div class="innerb" id="innerb">
+<div class="innerb" id="innerb" style="display:none">
 <div class="heading">
 <div class = "waveplaza"></div>
 <b class="title"> W A V E P L A Y E R </b>
@@ -241,7 +256,7 @@ height:100%;
   </div>
 </div>
 <i class="time" id="time">00:00:00/00:00:00</i>
-<audio id = "player" src="http://files.sq10.net/music/vaporwave/list/New%20Dreams%20Ltd/New%20Dreams%20Ltd.%20-%20Initiation%20Tape%20(Isle%20of%20Avalon%20Edition)/New%20Dreams%20Ltd.%20-%20Initiation%20Tape-%20Isle%20of%20Avalon%20Edition%20-%2008%20Meditations.mp3" ontimeupdate="update_time(this.currentTime, this.duration)"></audio>
+<audio id = "player" src="https://ia601507.us.archive.org/0/items/WAVEPLAZA/waveplaza-startup.mp3" ontimeupdate="update_time(this.currentTime, this.duration)" ></audio>
 <div class="select_div">
 <br>
 <select size=1 id = "select" style="visibility: hidden;">
@@ -283,6 +298,8 @@ var selectmenu = document.getElementById("selectmenu");
 var br = document.getElementById("br");
 var background = document.getElementById("bgs");
 var cbg = document.getElementById("changebackground");
+var start_btn = document.getElementById("closestart");
+var start_div = document.getElementById("start_div");
 var duration = 0
 var time = 0
 var clr = "199,116,232"
@@ -294,6 +311,17 @@ ody.style.backgroundImage = 'url()';
 var html = document.getElementsByTagName('html')[0];
 html.style.backgroundImage = 'url('+bgs.options[bgs.selectedIndex].value+')';
 }
+}
+
+start_btn.onclick = function() {
+getwaves();
+document.getElementById("status").innerHTML = "loading..."
+
+start_div.setAttribute("style", "display: none;");
+innerb.setAttribute("style", "display:auto")
+$(".dragdiv")
+                .draggable({scroll: true});
+player.play()
 }
 
 settingsbutton.onclick = function() {
@@ -406,10 +434,8 @@ select.add(option)
 function getwaves() { //syntax for s: id/artist example
 var URL = "http://archive.org/metadata/WAVEPLAZA/files/"
 $.getJSON(URL, function(data) {
-    console.log(JSON.stringify(data["result"]))
     $(jQuery.parseJSON(JSON.stringify(data["result"]))).each(function() {  
 	 if (this.format == "VBR MP3") {
-	  console.log("found an mp3!")
       newoption("https://ia801507.us.archive.org/0/items/WAVEPLAZA/"+this.name)
 }	 
 	});
@@ -497,8 +523,10 @@ for (i = 0; i < select.length; i++) {
 
 randomize.onclick = function() {
 if (randme == false) {
+randomize.setAttribute("style", "background-color: rgb(0,0,128);")
 randme=true; 
 } else {
+randomize.setAttribute("style", "")
 randme=false;
 }
 }
@@ -524,14 +552,15 @@ var colors = ["199,116,232", "255,106,213", "173,140,255", "135,149,232", "148,2
 //see waves.js for more information
 
 </script>
-<!-- Making windows dragable -->
+<!-- Making windows dragable
+   -------- moved to start_btn.onclick ---------- 
   <script>
   $(function () {
             $(".dragdiv")
                 .draggable({scroll: true});
 	});
   </script>
-
+-->
 </body>
 <div style="height: 5000px; width: 1px;"></div>
 </html>
