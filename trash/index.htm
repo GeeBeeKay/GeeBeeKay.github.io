@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html id="htmls">
+<head>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<style type="text/css">
+img {
+    zoom: 2;  //increase if you have very small images
+
+    display: auto;
+    margin: 0px;
+
+    height: auto;
+    max-height: 250px;
+
+    width: auto;
+    max-width: 250px;
+}
+html {
+margin: 0px;
+padding: 0px;
+background-image: url("bg.jpg");
+overflow: hidden;
+}
+.imgs {
+padding: 5px;
+}
+
+
+</style>
+</head>
+<body>
+<div id="bg">
+<div id="imgs"><img src="1.jpg"></img></div></img>
+</div>
+<br>
+<audio src="jahncema.mp3" id="audio">
+<source src="jahncema.ogg" type="audio/ogg"></source>
+<source src="jahncema.mp3" type="audio/mpeg"></source>
+</audio>
+<h1>Try to click my head! (Press -->)</h1>
+<script type="text/javascript">
+
+var imgs = document.getElementById("imgs")
+var htmls = document.getElementById("htmls")
+var times = randint(20,2000);
+var audio = document.getElementById("audio")
+var mouse = false
+
+
+function newimg(src) {
+var img = document.createElement("img");
+img.src = src;
+img.id = src;
+imgs.appendChild(img)
+window.scrollTo(0,0)
+}
+
+for(var i = 0; i < times; i++) {
+newimg("2.jpg")
+}
+newimg("3.jpg")
+document.getElementById("3.jpg").onclick = function() {
+win()
+}
+
+var width = (times*200*2.5)
+width += 420*2.5
+
+htmls.setAttribute("style", "width: "+width+"px")
+
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function win() {
+audio.src = "end.mp3"
+audio.play()
+setTimeout(function () {
+            alert('Wow, you seem to have no hobbies. Please seek help.')
+			window.scrollTo(0,0)
+			audio.src = "jahncema.mp3"
+			setTimeout(function () {
+            window.location.reload(false);
+    }, 3000);
+    }, 3000);
+}
+
+document.onkeypress = function() {
+window.scrollBy(250, 0);
+}
+
+document.onkeydown = function() {
+audio.play()
+}
+
+document.onkeyup = function() {
+audio.pause()
+}
+
+document.onmousedown = function() {
+audio.play()
+mouse = true
+}
+
+window.setInterval(function(){
+  checkformouse()
+}, 20);
+
+checkformouse = function() {
+if(mouse == true){
+window.scrollBy(250, 0);
+}
+}
+
+document.onmouseup = function() {
+audio.pause()
+mouse = false
+}
+
+document.onload = function() {
+window.scrollTo(0,0)
+}
+
+if (window.scrollX > 0) {
+window.scrollTo(0,0)
+}
+
+
+</script>
+</body>
+</html>
