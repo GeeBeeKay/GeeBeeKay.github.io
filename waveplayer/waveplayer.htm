@@ -110,6 +110,7 @@ width: 100%;
 height: 100%;
 position: absolute;
 overflow-y: hidden;
+margin: 0px;
 }
 .waveplaza {
     background: url(https://f4.bcbits.com/img/0008715326_22.jpg) no-repeat;
@@ -382,7 +383,7 @@ getmetadata();
 //-------------------------------------------------------------------------------
 
 function gethttpartist(s) { //syntax for s: id/artist example
-var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var URL = "//archive.org/metadata/WAVEPLAZA/files/"+s
 var v
 $.getJSON(URL, function(data) {
     var w = data["result"];
@@ -393,7 +394,7 @@ $.getJSON(URL, function(data) {
 };
 
 function gethttpalbum(s) { //syntax for s: id/artist example
-var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var URL = "//archive.org/metadata/WAVEPLAZA/files/"+s
 var v
 $.getJSON(URL, function(data) {
     var w = data["result"];
@@ -403,7 +404,7 @@ $.getJSON(URL, function(data) {
 });
 };
 function gethttptrack(s) { //syntax for s: id/artist example
-var URL = "http://archive.org/metadata/WAVEPLAZA/files/"+s
+var URL = "//archive.org/metadata/WAVEPLAZA/files/"+s
 var v
 $.getJSON(URL, function(data) {
     var w = data["result"];
@@ -432,11 +433,11 @@ select.add(option)
 }
 
 function getwaves() { //syntax for s: id/artist example
-var URL = "http://archive.org/metadata/WAVEPLAZA/files/"
+var URL = "//archive.org/metadata/WAVEPLAZA/files/"
 $.getJSON(URL, function(data) {
     $(jQuery.parseJSON(JSON.stringify(data["result"]))).each(function() {  
 	 if (this.format == "VBR MP3") {
-      newoption("https://ia801507.us.archive.org/0/items/WAVEPLAZA/"+this.name)
+      newoption("//ia801507.us.archive.org/0/items/WAVEPLAZA/"+this.name)
 }	 
 	});
 });
