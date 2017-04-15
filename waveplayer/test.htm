@@ -272,14 +272,18 @@ height:100%;
 <!--<script src="waves.js" type="text/javascript"></script>-->
 <script type="text/javascript">
 
+var dir = "music/";
+var fileextension = ".mp3";
 $.ajax({
-  url: "http://geebeekay.github.io/waveplayer/music/",
-  success: function(data){
-     $(data).find("td > a").each(function(){
-        // will loop through 
-        alert("Found a file: " + $(this).attr("href"));
-     });
-  }
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        //List all .png file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http://", "");
+            $("body").append("<img src='" + dir + filename + "'>");
+        });
+    }
 });
 
 var innerb = document.getElementById("innerb");
