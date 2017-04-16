@@ -256,7 +256,7 @@ border-right-color: #fff;
 <a class="an" role="button" id="band"> <u>B</u>andcamp </a><a class="an" role="button" id="randomize"> <u>R</u>andomize </a> <a class="an" role="button" id= "selectmenu"> <u>S</u>elect </a> <a class="an" id="ab" role="button"> <u>A</u>bout </a>
 <div class="border2" style="width:99%;">
 <br>
-<img class="cover" float:left src = "http://i.imgur.com/SHiQr5w.gif">
+<img class="cover" id="cover" float:left src = "http://i.imgur.com/SHiQr5w.gif">
 <div>
 <b> Now downloading... </b>
 <br>
@@ -320,9 +320,11 @@ var duration = 0
 var time = 0
 var clr = "199,116,232"
 
+var cover = document.getElementById("cover");
+
 var rawtracks = "CASINOGARDENS-CASINOGARDENS"
 
-//tracks syntax: "track"{"url":url, "id":identifier, "artist":artist, "album":album, "name":name}
+//tracks syntax: "track"{"url":url, "id":identifier, "artist":artist, "album":album, "name":name, folder:"folder"}
 var tracks = []
 
 cbg.onclick = function() {
@@ -439,6 +441,7 @@ $.getJSON(URL, function(data) {
 //THIS ONLY WORKS FOR ARCHIVE.ORG FILES --------------------------------
 function getmetadata() {
 data.innerHTML = select[select.selectedIndex].value
+cover.setAttribute("src",tracks[select.selectedIndex].folder + "cover_thumb.jpg")
 }
 
 //--------------------------------------------------------------------------
@@ -457,7 +460,7 @@ var URL = "https://archive.org/metadata/"+id
 $.getJSON(URL, function(data) {
     $(jQuery.parseJSON(JSON.stringify(data["files"]))).each(function() {  
 	 if (this.format == "VBR MP3") {
-	 var d = {name:this.artist + " - "+this.album+" - "+this.title, url:"https://"+data["d1"]+data["dir"]+"/"+this.name, id:id, artist:this.artist, album:this.album, title:this.title};
+	 var d = {name:this.artist + " - "+this.album+" - "+this.title, url:"https://"+data["d1"]+data["dir"]+"/"+this.name, id:id, artist:this.artist, album:this.album, title:this.title, folder:"https://"+data["d1"]+data["dir"]+"/"};
 	  tracks.push(d)
       //newoption("https://"+data["d2"]+data["dir"]+"/"+this.name)
       newoption(this.artist + " - "+this.album+" - "+this.title)
