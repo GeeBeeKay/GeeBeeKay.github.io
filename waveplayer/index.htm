@@ -313,6 +313,44 @@ outline: 0;
 	100% {transform: scale(1,1);left: 100%}
 }
 
+@media only screen and (max-width: 630px) {
+    * {
+		width: 100%;
+	}
+	
+	.innerb {
+		left: 0;
+		top:0;
+		transform: translate(0, 0);
+		min-width: 320px;
+		min-height; 320px;
+		width: 66vw;
+		position: absolute;
+		padding: 1px 1px 1px;
+		border: 1px solid;
+		border-top-color: #fff;
+		border-left-color: #fff;
+		border-bottom-color: #808080;
+		border-right-color: #808080;
+		font-size: 13px;
+		background-color: rgb(189,189,189)
+	}
+	
+	.explorer {
+		display: none;
+	}
+	
+	.buttons {
+		width: 66vw;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	
+	button {
+		width: 50px;
+	}
+}
+	
 	</style>
 
 </head>
