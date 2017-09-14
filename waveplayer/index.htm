@@ -90,6 +90,7 @@ audio {
 }
 
 button{
+float: right;
 -webkit-font-smoothing: none;
     font-size: 11px;
     font-family: Tahoma, Verdana, Segoe, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
@@ -120,11 +121,20 @@ button{
 	background-color: rgb(224,224,224);
 	width: 99%;
 }
+
+.buttons {
+	display: flex;
+	justify-content: flex-end;
+	align-items: bottom;
+	padding: 5px; 0
+}
+
 .heading {
 background-color: rgb(0,0,128);
 color: rgb(255,255,255);
 }
 html {
+zoom: 150%;
 background-color: #208c71;
 background-image: url() no-repeat;
 background-size: 100% 100%;
@@ -168,7 +178,9 @@ background-color: rgb(0,0,128);
 text-decoration: none;
 cursor: pointer;
 outline: 0;
+color: white;
 }
+
 .content {
 width: 100%;
 height:100%;
@@ -217,6 +229,90 @@ text-decoration: none;
 cursor: pointer;
 outline: 0;
 }
+
+#waveplaza-title {
+	color: blue;
+	-moz-animation: waveclr 5s forwards;
+    -ms-animation: waveclr 5s forwards;
+    -o-animation: waveclr 5s forwards;
+    animation: waveclr 5s forwards;
+	animation-iteration-count: infinite;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+@-webkit-keyframes waveclr{
+    0% {color: #8795E8}
+	20% {color: #94D0FF}
+	40% {color: #FF6AD5}
+	60% {color: #C774E8}
+	80% {color: #AD8CFF}
+}
+@-ms-keyframes waveclr{
+    0% {color: #8795E8}
+	20% {ansform: color: #94D0FF}
+	40% {transform: color: #FF6AD5}
+	60% {transform: color: #C774E8}
+	80% {transform: color: #AD8CFF}
+}
+@-o-keyframes waveclr{
+    0% {transform: color: #8795E8}
+	20% {transform: color: #94D0FF}
+	40% {transform: color: #FF6AD5}
+	60% {transform: color: #C774E8}
+	80% {transform: color: #AD8CFF}
+}
+@-moz-keyframes waveclr{
+    0% {transform: color: #8795E8}
+	20% {transform: color: #94D0FF}
+	40% {transform: color: #FF6AD5}
+	60% {transform: color: #C774E8}
+	80% {transform: color: #AD8CFF}
+}
+@keyframes waveclr{
+    0% {color: #8795E8}
+	25% {color: #FF6AD5}
+	50% {color: #C774E8}
+	75% {color: #AD8CFF}
+	100% {color: #8795E8}
+}
+
+
+
+
+#progress-start {
+	position: relative;
+	width: 5%;
+	left: -5%;
+    -moz-animation: loading 2s forwards;
+    -ms-animation: loading 2s forwards;
+    -o-animation: loading 2s forwards;
+    animation: loading 2s forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+...
+
+@-webkit-keyframes loading{
+     0% {transform: left: 0px}
+	100% {transform: scale(1,1);left: 100%}
+}
+@-ms-keyframes loading{
+     0% {transform: left: 0px}
+	100% {transform: scale(1,1);left: 100%}
+}
+@-o-keyframes loading{
+    0% {transform: left: 0px}
+	100% {transform: scale(1,1);left: 100%}
+}
+@-moz-keyframes loading{
+     0% {transform: left: 0px}
+	100% {transform: scale(1,1);left: 100%}
+}
+@keyframes loading{
+    0% {transform: left: 0px}
+	100% {transform: scale(1,1);left: 100%}
+}
+
 	</style>
 
 </head>
@@ -225,20 +321,20 @@ outline: 0;
 <div class="dragdiv2">
 <div class="innerb" id="start_div" style="display:auto;">
 <div class="heading">
-<b class="title"> Welcome to W A V E P L A Z A </b>
+<b class="title" style="margin: 0 5px"> Welcome to W A V E P L A Z A </b>
 </div>
 <div class="border2" style="width:99%;">
 <br>
-<span style="margin: 0 5px">Welcome to the virtual plaza. Enjoy your stay.</span> <br> <br>
+<span style="margin: 0 5px">Welcome to the virtual plaza. Please enjoy your stay. <a id="closestart" style="cursor: pointer;"><u>Continue...</u></a></span> <br> <br>
 <div class="border">
 <div class="progress">
     <div id="bar" class="progress-container" style="width: 100%;">
       <div id="progress-start" class="progress-bar" style="background-color: rgba(0,0,128, 1); margin: 1px 1px; width: 0%;"><br></div>
-    </div>
+	  </div>
   </div>
 </div>
 <br>
-<button id="closestart" style="float: center;">Continue</button>
+<!-- <button id="closestart" >Continue</button> -->
 </div>
 </div>
 </div>
@@ -251,12 +347,18 @@ outline: 0;
 </div>
 <div class="border2" style="width:99%;">
 <br>
-<br>
-<span style="margin: 0 5px"><b> W A V E P L A Z A </b>is an open Vaporwave library powered by <a href="https://archive.org">Archive.org</a>.</span> <br>
-<span style="margin: 0 5px">If you want to visit our library click <a href="https://archive.org/details/WAVEPLAZA">here</a>.</span> <br>
-<span style="margin: 0 5px">If you want to distribute your own music email us via <i>waveplaza@pidmail.com</i> or contact us <a href="https://bandcamp.com/contact?n=GeeBeeKay">here</a> </span><br>
-<br>
-<span style="margin: 0 5px"><i>				-GeeBeeKay / Waveplaza 2017</i></span> <br> <br>
+<span style="margin: 0 5px; padding: 0 5px"><b id="waveplaza-title">W A V E P L A Z A </b>&nbsp; is an open vaporwave library powered by <a href="https://archive.org">archive.org</a>.</p>
+<hr><br>
+<h3 style="margin: 0 5px;padding: 0 5px"> Distributing </h3><br>
+<p style="margin: 0 5px;padding: 0 5px">If you want to distribute to our library follow the following steps:</p>
+<ul>
+<li>Upload your music (preferably in MP3 format, .flac is also supported) to <a href="https://archive.org">archive.org</a>.</li>
+<li>Your repository must contain a cover_thumb.jpg file</li>
+<li>Your repository must have valid metadata for artist, album and track title.</li>
+<li>Make sure you upload your album in "Community Audio". This way the website will take care of the metadata</i></li>
+<li>Send me a link to the repository by sending me and email: <a href="thisisplaceholdertext">email@email.com</a></li>
+</ul>
+<p style="margin: 0 5px;padding: 0 5px"><i>				Waveplaza 2017</i></p> <br> <br>
 <button id="closeabout" style="float: center;">Close</button>
 </div>
 </div>
@@ -313,7 +415,7 @@ outline: 0;
 <div class = "waveplaza"></div>
 <b class="title"> W A V E P L A Z A </b>
 </div>
-<a class="an" role="button" id="band"> <u>B</u>andcamp </a><a class="an" role="button" id="randomize"> <u>R</u>andomize </a> <a class="an" role="button" id= "selectmenu"> <u>S</u>elect </a> <a class="an" id="ab" role="button"> <u>A</u>bout </a>
+<a class="an" role="button" id="band"> <u>B</u>andcamp </a><a class="an" role="button" id="randomize"> <u>R</u>andomize </a> <a class="an" role="button" id= "selectmenu"> <u>S</u>elect </a> <a class="an" role="button" id= "settings"> S<u>e</u>ttings </a> <a class="an" id="ab" role="button"> <u>A</u>bout </a>
 <div class="border2" style="width:99%;">
 <br>
 <img class="cover" id="cover" float:left src = "http://i.imgur.com/SHiQr5w.gif">
@@ -332,15 +434,11 @@ outline: 0;
 </div>
 <i class="time" id="time">00:00:00/00:00:00</i>
 <audio id = "player" src="https://ia601507.us.archive.org/0/items/WAVEPLAZA/waveplaza-startup.mp3" ontimeupdate="update_time(this.currentTime, this.duration)" ></audio>
-<!--<div class="select_div">  //SEEMS LIKE THIS WAS MOVED WAY DOWN THERE IN CODE...
+
 <br>
-<select size=1 id = "select" style="display:none">
-</select>
-</div>-->
-
-<br><br>
-
-<button id="start"> Download </button> <button id="back"> Last </button> <button id="pause">Pause</button> <button id="play"> Play </button> <button id="skip"> Skip </button> <button id="settings"> Settings </button>
+	<div class="buttons">
+		<button id="dl_btn" style="float:center"> Download </button> <button id="back"> Last </button> <button id="pause">Pause</button> <button id="play"> Play </button> <button id="skip"> Skip </button> 
+	</div>
 </div>
 </div>
 </div>
@@ -348,12 +446,12 @@ outline: 0;
 </div>
 
 <!-- EXPLORER WINDOW FOR LISTING ALBUMS -->
-<div id="sort_div" class="explorer" style="display:auto">
+<div id="sort_div" class="explorer" style="display:none">
 <div class="innerb2" id="innerb2" style="display:auto; width:40%;height:60%;position:relative">
 <div class="heading">
 <b class="title">W A V E P L A Z A - E X P L O R E R </b>
 </div>
-<a class="an" role="button" id="ab"> <u>D</u>istribute </a><a class="an" role="button" id="sort_close"><u>C</u>lose </a>
+<a class="an" role="button" onclick="aboutbutton.click()"> <u>D</u>istribute </a><a class="an" role="button" id="sort_close"><u>C</u>lose </a>
 <br>
 <div class="border2" style="width:99%; float:left">
 <i>Current library of  W A V E P L A Z A</i>
@@ -378,6 +476,7 @@ var innerb = document.getElementById("innerb");
 var btn_play = document.getElementById("play");
 var btn_back = document.getElementById("back");
 var btn_start = document.getElementById("start");
+var dl_btn = document.getElementById("dl_btn");
 var paused = false
 var hidden = true
 var randme = false
@@ -410,29 +509,26 @@ var duration = 0
 var time = 0
 var clr = "199,116,232"
 var cover = document.getElementById("cover");
-//var rawtracks = ["CASINOGARDENS-CASINOGARDENS","JpegArtifactsRidinThatInformationHighway","INTEGEROVERFLOWEUNEXPECTED","AmunDragoonFjordsVol.II", "AmunDragoon-UNLIMITEDDREAMCOMPANY", "be____allLightHeartNoMindEP", "ChrisTTT", "ChipJewelryNyetscape", "ComputerSlime-Fog", "DatavisionLtd-VectorTables", "Disconscious-HologramPlaza", "DisketteRomances-DisketteRomances", "ECOVIRTUAL-ATMOSPHERES1", "ECOVIRTUAL-ATMOSPHERES2", "GHOSTING-Telenights", "GeeBeeKay-Clouds.jpg", "GeeBeeKay-DigitalExile", "GOLDENLIVINGROOM-NEWNOSTALGIA", "GOLFSWINGERS-BuildingsDreams", "HayaoYamaneko-RestInParadise", "HayaoYamaneko-ShatteredHolograms-", "InfinityFrequencies-ComputerAfterlife", "InfinityFrequencies-ComputerDeath", "InfinityFrequencies-ComputerDecay", "InfinityFrequencies-DreamRecovery", "InfinityFrequencies-Euphoria", "INTERNETCLUB-DREAMS3D", "INTERNETCLUB-FINALTEARS", "INTERNETCLUB-REDEFININGTHEWORKPLACE"]
 var rawtracks = []
 //tracks syntax: "track"{"url":url, "id":identifier, "artist":artist, "album":album, "name":name, folder:"folder"}
 var tracks = []
 var trackstring = ""
+var loadingwaves = false
 
 player.volume = 0.85;
-
-function checkalbum(image_url){
-
-    var http = new XMLHttpRequest();
-
-    http.open('HEAD', image_url, false);
-    http.send();
-
-    return http.status != 404;
-}
 
 $.get('https://geebeekay.github.io/waveplayer/music/test.txt', function(data) {
    trackstring = data;
    rawtracks = trackstring.split("\n")
-   console.log(trackstring.split('\n'))
-}, 'text');
+   var l = rawtracks.length * 2;
+   var p = document.getElementById("progress-start");
+   loadingwaves = true;
+	console.log(l);
+	for(var i = 0; i<rawtracks.length; i++) {
+		getwaves(rawtracks[i]);
+	}
+	p.setAttribute("style","background-color: rgba(0,0,128, 1); margin: 1px 1px; width: "+rangeToPercent(1, 1, 1)+"%; height: 5%;");
+	}, 'text');
 
 cbg.onclick = function() {
 	if (select.options[select.selectedIndex].value == "Solid") {
@@ -444,14 +540,8 @@ cbg.onclick = function() {
 }
 
 start_btn.onclick = function() {
-	var l = rawtracks.length;
-	var p = document.getElementById("progress-start");
-	console.log(l);
-	for(var i = 0; i<rawtracks.length; i++) {
-		getwaves(rawtracks[i]);
-	}
-
 	start_div.setAttribute("style", "display: none;");
+	sort_div.setAttribute("style", "display:auto")
 	innerb.setAttribute("style", "display:auto")
 	/*$(".dragdiv")
                 .draggable({scroll: true});*/
@@ -477,11 +567,13 @@ sort_close.onclick = function() {
 	sort_div.setAttribute("style", "display:none")
 }
 btn_play.onclick = function() {
-//player.src = select.options[select.selectedIndex].value;
-player.src = tracks[select.selectedIndex].url;
-player.play();
-//No need because of newer select System
-getmetadata();
+	if (paused) {
+		paused = false;
+	} else {
+		player.src = tracks[select.selectedIndex].url;
+		getmetadata();
+	}
+	player.play()
 }
 btn_back.onclick = function() {
 try {
@@ -492,9 +584,11 @@ catch(err) {
 getmetadata();
 btn_play.click()
 }
-start.onclick = function() {
+
+dl_btn.onclick = function() {
 window.open(select.options[select.selectedIndex].value)
 }
+
 function decode(s) {
 	return decodeURIComponent(s).replace(/'/g,"%27").replace(/"/g,"%22").replace("http://files.sq10.net/music/vaporwave/list/", "").replace(".mp3", "").replace("https://archive.org/download/","");	
 }
@@ -508,38 +602,11 @@ paused = false
 }
 getmetadata();
 }
-//-------------------------------------------------------------------------------
-/*function gethttpartist(s) { //syntax for s: id/artist example
-var URL = "https://archive.org/metadata/WAVEPLAZA/files/"+s
-var v
-$.getJSON(URL, function(data) {
-    var w = data["result"];
-	artist = w
-    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
-	console.log(artist);
-});
-};
-function gethttpalbum(s) { //syntax for s: id/artist example
-var URL = "https://archive.org/metadata/WAVEPLAZA/files/"+s
-var v
-$.getJSON(URL, function(data) {
-    var w = data["result"];
-	album = w
-    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
-	console.log(album);
-});
-};
-function gethttptrack(s) { //syntax for s: id/artist example
-var URL = "https://archive.org/metadata/WAVEPLAZA/files/"+s
-var v
-$.getJSON(URL, function(data) {
-    var w = data["result"];
-	track = w
-    //var s = JSON.stringify(data).replace('{"result":"', "").replace('"}', "")
-	console.log(track);
-});
-};
-*/
+
+dl_btn.onclick = function() {
+	window.open("https://archive.org/details/"+tracks[select.selectedIndex].id)
+}
+
 //THIS ONLY WORKS FOR ARCHIVE.ORG FILES --------------------------------
 function getmetadata() {
 	data.innerHTML = select[select.selectedIndex].value;
@@ -557,10 +624,13 @@ var URL = "https://archive.org/metadata/"+id
 $.getJSON(URL, function(data) {
     $(jQuery.parseJSON(JSON.stringify(data["files"]))).each(function() {  
 	 if (this.format == "VBR MP3") {
+	 if (!(this.artist == null || this.album == null || this.title == null)) {
+		
 	 var d = {name:this.artist + " - "+this.album+" - "+this.title, url:"https://"+data["d1"]+data["dir"]+"/"+this.name, id:id, artist:this.artist, album:this.album, title:this.title, folder:"https://"+data["d1"]+data["dir"]+"/"};
 	  tracks.push(d)
       //newoption("https://"+data["d2"]+data["dir"]+"/"+this.name)
       newoption(this.artist + " - "+this.album+" - "+this.title)
+	}
 	}
 	});
 });
@@ -568,7 +638,7 @@ $.getJSON(URL, function(data) {
 //---------------------------------------------------------------------------
 // GET ALL CONTENTS OF TEXT FILE (STOPPED USING ONE BIG ARCHIVE AND SPLITTED IT)
 //---------------------------------------------------------------------------
-function getallarchives() {
+/*function getallarchives() {
 var client = new XMLHttpRequest();
 client.open('GET', 'https://GeeBeeKay.github.io/waveplayer/files.html');
 client.onreadystatechange = function() {
@@ -593,9 +663,10 @@ $.getJSON(URL, function(data) {
 	});
 });
 }
-}
+}*/
 //---------------------------------------------------------------------------
 function PlayNext(){
+	paused = false;
 	if (randme == false) {
 		try {
 			select.selectedIndex = select.selectedIndex+1
@@ -636,61 +707,72 @@ function toHHMMSS(s) {
     if (seconds < 10) {seconds = "0"+seconds;}
     return hours+':'+minutes+':'+seconds;
 }
+
 function update_time(s, d) {
-time = s;
-duration = d;
-var p = document.getElementById("progress");
-timer.innerHTML = toHHMMSS(Math.floor(time)) + ' / ' + toHHMMSS(Math.floor(duration));
-p.setAttribute("style","background-color: rgba(0,0,128, 1); margin: 1px 1px; width: "+rangeToPercent(time, 1, duration)+"%; height: 5%;");
+	time = s;
+	duration = d;
+	var p = document.getElementById("progress");
+	timer.innerHTML = toHHMMSS(Math.floor(time)) + ' / ' + toHHMMSS(Math.floor(duration));
+	p.setAttribute("style","background-color: rgba(0,0,128, 1); margin: 1px 1px; width: "+rangeToPercent(time, 1, duration)+"%; height: 5%;");
 }
+
 band.onclick = function() {
-window.open("https://geebeekay.bandcamp.com")
+	window.open("https://geebeekay.bandcamp.com")
 }
+
 selectmenu.onclick = function() {
-sort_div.setAttribute("style", "display:auto")
+	sort_div.setAttribute("style", "display:auto")
 }
+
 function deleteallwaves() {
-for (i = 0; i < select.length; i++) {
-  select.options[i] = null;
+	for (i = 0; i < select.length; i++) {
+		select.options[i] = null;
+	}
 }
-}
+
+
 randomize.onclick = function() {
-if (randme == false) {
-randomize.setAttribute("style", "background-color: rgb(0,0,128);")
-randme=true; 
-} else {
-randomize.setAttribute("style", "")
-randme=false;
+	if (randme == false) {
+		randomize.setAttribute("style", "background-color: rgb(0,0,128);color:white;")
+		randme=true; 
+	} else {
+		randomize.setAttribute("style", "")
+		randme=false;
+	}
 }
-}
-jQuery.expr.filters.offscreen = function(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-           (rect.x + rect.width) < 0 
-             || (rect.y + rect.height) < 0
-             || (rect.x > window.innerWidth || rect.y > window.innerHeight)
-         );
-};
-if ($('innerb').is(':offscreen')) {
-$(".innerb")
-                .left = 10;
-}
+
 //add to explorer window
 function addtof1() {
 	f1.append();
 }
+
+cover.onerror = function() {
+	cover.src = "http://i.imgur.com/SHiQr5w.gif"
+}
+
 var colors = ["199,116,232", "255,106,213", "173,140,255", "135,149,232", "148,208,255"]
-//see waves.js for more information
+
+//Shortcuts
+
+document.addEventListener ("keydown", function (zEvent) {
+    if (zEvent.altKey  &&  zEvent.code === "KeyR") {
+        randomize.click()
+    } else if (zEvent.altKey  &&  zEvent.code === "KeyB") {
+		band.click()
+	} else if (zEvent.altKey  &&  zEvent.code === "KeyS") {
+		selectmenu.click()
+	} else if (zEvent.altKey  &&  zEvent.code === "KeyA") {
+		aboutbutton.click()
+	}
+} );
+
+jQuery(document).ready(function() {
+    setTimeout(function() {
+         start_btn.click()
+    }, 2000);
+});
+
+
 </script>
-<!-- Making windows dragable
-   -------- moved to start_btn.onclick ---------- 
-  <script>
-  $(function () {
-            $(".dragdiv")
-                .draggable({scroll: true});
-	});
-  </script>
--->
 </body>
-<div style="height: 5000px; width: 1px;"></div>
 </html>
