@@ -78,7 +78,7 @@ audio {
 
 .innerb2{
 	width: 70%;
-	min-width:600px;
+	min-width:450px;
 	padding: 1px 1px 1px;
 	border: 1px solid;
 	border-top-color: #fff;
@@ -230,7 +230,7 @@ cursor: pointer;
 outline: 0;
 }
 
-#waveplaza-title {
+.waveplaza-title {
 	color: blue;
 	-moz-animation: waveclr 5s forwards;
     -ms-animation: waveclr 5s forwards;
@@ -350,7 +350,7 @@ outline: 0;
 		width: 50px;
 	}
 }
-	
+
 	</style>
 
 </head>
@@ -385,7 +385,10 @@ outline: 0;
 </div>
 <div class="border2" style="width:99%;">
 <br>
-<span style="margin: 0 5px; padding: 0 5px"><b id="waveplaza-title">W A V E P L A Z A </b>&nbsp; is an open vaporwave library powered by <a href="https://archive.org">archive.org</a>.</p>
+<span style="margin: 0 5px; padding: 0 5px"><b class="waveplaza-title">W A V E P L A Z A </b>&nbsp; is an open vaporwave library powered by <a href="https://archive.org">archive.org</a>.</p>
+<hr><br>
+<h3 style="margin: 0 5px;padding: 0 5px"> Formats </h3><br>
+<p style="margin: 0 5px;padding: 0 5px">We offer both MP3 and OGG formats. To change the audio format check the Settings tab.</p><br>
 <hr><br>
 <h3 style="margin: 0 5px;padding: 0 5px"> Distributing </h3><br>
 <p style="margin: 0 5px;padding: 0 5px">If you want to distribute to our library follow the following steps:</p>
@@ -393,6 +396,7 @@ outline: 0;
 <li>Upload your music (preferably in MP3 format, .flac is also supported) to <a href="https://archive.org">archive.org</a>.</li>
 <li>Your repository must contain a cover_thumb.jpg file</li>
 <li>Your repository must have valid metadata for artist, album and track title.</li>
+<li>Your repository must contain both a MP3 and an OGG file with the same name for each track</li>
 <li>Make sure you upload your album in "Community Audio". This way the website will take care of the metadata</i></li>
 <li>Send me a link to the repository by sending me and email: <a href="thisisplaceholdertext">email@email.com</a></li>
 </ul>
@@ -410,36 +414,12 @@ outline: 0;
 </div>
 <div class="border2" style="width:99%;">
 <br>
+<span style="margin: 0 5px">Format: </span><span id="format_span">MP3</span> | <a id="format_btn" style="cursor: pointer"><u>Click to change...</u></a><br>
 <span style="margin: 0 5px">Change <i>background</i>:</span> <br>
 <br>
 <select id="bgs" style="width:80%">
 <option>Solid</option>
 <option>https://i.imgur.com/PRbAQ.gif</option>
-<option>https://68.media.tumblr.com/5e2be2951c2504779065607305b15d42/tumblr_oglidp8Ki51tixvyxo1_500.gif</option>
-<option>https://68.media.tumblr.com/77deb57a5c8fe0b5c2f1bc1d1d375245/tumblr_nlld6ahTEN1slt6qeo1_500.gif</option>
-<option>https://68.media.tumblr.com/5bc320be6f6841f17bedbbd9929f5913/tumblr_o3920eLnQu1tbgnn1o1_400.gif</option>
-<option>https://media.giphy.com/media/l41lM5o07uUz96BPi/giphy.gif</option>
-<option>https://media.giphy.com/media/3oz8xvvaWdDOzUIQLe/giphy.gif</option>
-<option>https://media.giphy.com/media/4flKQuF7iTfNu/giphy.gif</option>
-<option>http://media2.giphy.com/media/l41YamEiIYltJtLUI/giphy.gif</option>
-<option>http://media3.giphy.com/media/3o6oztT1HzTzpUwWuQ/giphy.gif</option>
-<option>https://66.media.tumblr.com/dbe706a77b324b9015c8716ae1388d23/tumblr_obnf09FWfK1qeyvpto1_500.gif</option>
-<option>https://j.gifs.com/VOKkp5.gif</option>
-<option>https://cengizerdem.files.wordpress.com/2015/04/tumblr_o72wzqgxuf1uzrg9oo1_500.gif</option>
-<option>http://cloud-3.steamusercontent.com/ugc/270598716229035168/5CA3ABF21169E9717A5000C353A5EBFCB8B1CBDC/</option>
-<option>https://secure.static.tumblr.com/b59158de845445390abf221c24602435/e6ifih5/j7zoh2b0f/tumblr_static_tumblr_static_5ed7cssr9bwg8ogggcksocssk_640.gif</option>
-<option>http://i.imgur.com/SHiQr5w.gif</option>
-<option>http://media2.giphy.com/media/l2SpN90T9PrgGizh6/giphy-downsized-medium.gif</option>
-<option>http://games.ucla.edu/wp-content/uploads/2015/04/melty.gif</option>
-<option>http://i.imgur.com/TrvLTKS.jpg</option>
-<option>https://archive-media-1.nyafuu.org/wg/image/1448/32/1448326338979.jpg</option>
-<option>https://68.media.tumblr.com/f92468203837b04e4d69ec37b4a9f1af/tumblr_og0u8xT9hN1vhmslwo1_500.gif</option>
-<option>https://media.giphy.com/media/G2k1HJdHvg0G4/giphy.gif</option>
-<option>http://vaporwave.co/wp-content/uploads/2016/04/vaporwave-door.gif</option>
-<option>https://secure.static.tumblr.com/17bc00349fd70af4dea66eff950817fa/rdpa7nd/y7qoje9jg/tumblr_static_tumblr_static_t0a1nm6g7isswckwg0oo0c4s_640.gif</option>
-<option>https://upload.wikimedia.org/wikipedia/en/9/91/Windows_95_Desktop_screenshot.png</option>
-<option></option>
-<option></option>
 </select> <button id="changebackground">Change</button>
 <button id="closesettings" style="float: center;">Close</button>
 </div>
@@ -539,6 +519,10 @@ var selectmenu = document.getElementById("selectmenu");
 var br = document.getElementById("br");
 var background = document.getElementById("bgs");
 var cbg = document.getElementById("changebackground");
+
+var format_btn = document.getElementById("format_btn");
+var format_ui = document.getElementById("format_span");
+
 var start_btn = document.getElementById("closestart");
 var start_div = document.getElementById("start_div");
 var sort_close = document.getElementById("sort_close");
@@ -552,6 +536,8 @@ var rawtracks = []
 var tracks = []
 var trackstring = ""
 var loadingwaves = false
+var useogg = false;
+var bg_int = 0;
 
 player.volume = 0.85;
 
@@ -608,7 +594,12 @@ btn_play.onclick = function() {
 	if (paused) {
 		paused = false;
 	} else {
-		player.src = tracks[select.selectedIndex].url;
+		//player.src = tracks[select.selectedIndex].url;
+		if (!useogg) {
+			player.src = tracks[select.selectedIndex].url;
+		} else {
+			player.src = tracks[select.selectedIndex].url.replace(".mp3", ".ogg");
+		}
 		getmetadata();
 	}
 	player.play()
@@ -625,6 +616,20 @@ btn_play.click()
 
 dl_btn.onclick = function() {
 window.open(select.options[select.selectedIndex].value)
+}
+
+format_btn.onclick = function() {
+	if (useogg) {
+		useogg = false;
+		format_ui.innerHTML = "MP3";
+		paused = false;
+		btn_play.click();
+	} else {
+		useogg = true;
+		format_ui.innerHTML = "OGG";
+		paused = false;
+		btn_play.click();
+	}
 }
 
 function decode(s) {
