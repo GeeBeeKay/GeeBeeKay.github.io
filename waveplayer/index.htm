@@ -44,6 +44,13 @@ audio {
 	border-right-color: #808080;
 	width: 99%;
 }
+u{
+-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 .border2 {
 	margin: 0 1px 1px 1px;
 	border: 1px solid;
@@ -88,6 +95,7 @@ audio {
 	font-size: 13px;
 	background-color: rgb(189,189,189)
 }
+
 
 button{
 float: right;
@@ -137,7 +145,7 @@ html {
 zoom: 150%;
 background-color: #208c71;
 background-image: url() no-repeat;
-background-size: 100% 100%;
+background-size: cover;
 background-repeat: no-repeat;
 width: 100%;
 height: 100%;
@@ -229,6 +237,21 @@ text-decoration: none;
 cursor: pointer;
 outline: 0;
 }
+
+#bg_num{
+	position:fixed;
+	width: 13%;
+	text-align: center;
+	border: 1px solid;
+	border-bottom-color: #fff;
+	border-right-color: #fff;
+	border-top-color: #808080;
+	border-left-color: #808080;
+	font-size: 13px;
+	background-color: rgb(189,189,189)
+}
+
+
 
 .waveplaza-title {
 	color: blue;
@@ -351,6 +374,107 @@ outline: 0;
 	}
 }
 
+
+
+
+
+input[type=range] {
+  height: 35px;
+  -webkit-appearance: none;
+  margin: 0 48px;
+  width: 55%;
+  background-color: rgb(189, 189, 189);
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #808080;
+  border-radius: 0px;
+  padding: 1px 1px 1px;
+		border: 1px solid;
+		border-bottom-color: #fff;
+		border-right-color: #fff;
+		border-top-color: #808080;
+		border-left-color: #808080;
+}
+input[type=range]::-webkit-slider-thumb {
+  padding: 1px 1px 1px;
+		border: 1px solid;
+		border-top-color: #fff;
+		border-left-color: #fff;
+		border-bottom-color: #808080;
+		border-right-color: #808080;
+  height: 28px;
+  width: 13px;
+  background: rgb(189,189,189);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -13px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #0;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #808080;
+  border-radius: 0px;
+  border: 1px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 2px solid #fff;
+  height: 28px;
+  width: 13px;
+  border-radius: 0px;
+  background: rgb(189,189,189);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: rgb(189,189,189);
+  border-color: rgb(189,189,189);
+  color: rgb(189,189,189);
+}
+input[type=range]::-ms-fill-lower {
+  background: #808080;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #808080;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #fff;
+  height: 28px;
+  width: 13px;
+  border-radius: 0px;
+  background: rgb(189,189,189);
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #808080;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #808080;
+}
 	</style>
 
 </head>
@@ -415,12 +539,9 @@ outline: 0;
 <div class="border2" style="width:99%;">
 <br>
 <span style="margin: 0 5px">Format: </span><span id="format_span">MP3</span> | <a id="format_btn" style="cursor: pointer"><u>Click to change...</u></a><br>
-<span style="margin: 0 5px">Change <i>background</i>:</span> <br>
+<span style="margin: 9px 5px; position: absolute;">Volume: </span> <input id="volslider" class="slider" type="range" min="0" max="100" step="1" value="85"><br>
+<span style="margin: 0 5px 0 2%">Background: </span><a onclick="bg_back()" style="cursor: pointer;"><u><<</u></a> <span id="bg_num" > Random </span> <a onclick="bg_for()" style="cursor: pointer;margin: 0 15%"><u>>></u></a>
 <br>
-<select id="bgs" style="width:80%">
-<option>Solid</option>
-<option>https://i.imgur.com/PRbAQ.gif</option>
-</select> <button id="changebackground">Change</button>
 <button id="closesettings" style="float: center;">Close</button>
 </div>
 </div>
@@ -518,10 +639,13 @@ var randomize = document.getElementById("randomize");
 var selectmenu = document.getElementById("selectmenu");
 var br = document.getElementById("br");
 var background = document.getElementById("bgs");
-var cbg = document.getElementById("changebackground");
 
 var format_btn = document.getElementById("format_btn");
 var format_ui = document.getElementById("format_span");
+
+var volslider = document.getElementById("volslider");
+
+var bg_num = document.getElementById("bg_num");
 
 var start_btn = document.getElementById("closestart");
 var start_div = document.getElementById("start_div");
@@ -538,8 +662,13 @@ var trackstring = ""
 var loadingwaves = false
 var useogg = false;
 var bg_int = 0;
+var bg_max = 20;
+
+bgs = ["https://plaza.one/img/backs/21.gif","https://plaza.one/img/backs/22.gif","https://plaza.one/img/backs/23.gif","https://plaza.one/img/backs/24.gif","https://plaza.one/img/backs/25.gif"];
 
 player.volume = 0.85;
+bg_num.innerHTML = bg_int;
+
 
 $.get('https://geebeekay.github.io/waveplayer/music/test.txt', function(data) {
    trackstring = data;
@@ -554,14 +683,44 @@ $.get('https://geebeekay.github.io/waveplayer/music/test.txt', function(data) {
 	p.setAttribute("style","background-color: rgba(0,0,128, 1); margin: 1px 1px; width: "+rangeToPercent(1, 1, 1)+"%; height: 5%;");
 	}, 'text');
 
-cbg.onclick = function() {
+/*cbg.onclick = function() {
 	if (select.options[select.selectedIndex].value == "Solid") {
 		ody.style.backgroundImage = 'url()';
 	}else{
 		var html = document.getElementsByTagName('html')[0];
 		html.style.backgroundImage = 'url('+bgs.options[bgs.selectedIndex].value+')';
 	}
+}*/
+
+function bg_for() {
+	if (bg_int == bg_max) {
+		bg_int = 0;
+	} else {
+		bg_int += 1;
+	}
+	bg_num.innerHTML = bg_int;
+	if (!bg_int == 0) {
+		var html = document.getElementsByTagName('html')[0];
+		html.style.backgroundImage = 'url('+bgs[bg_int+1]+')';
+	} else {
+		ody.style.backgroundImage = 'url()';
+	}
 }
+function bg_back() {
+	if (bg_int == 0) {
+		bg_int = bg_max;
+	} else {
+		bg_int -= 1;
+	}
+	bg_num.innerHTML = bg_int;
+	if (!bg_int == 0) {
+		var html = document.getElementsByTagName('html')[0];
+		html.style.backgroundImage = 'url('+bgs[bg_int+1]+')';
+	} else {
+		ody.style.backgroundImage = 'url()';
+	}
+}
+
 
 start_btn.onclick = function() {
 	start_div.setAttribute("style", "display: none;");
@@ -648,6 +807,10 @@ getmetadata();
 
 dl_btn.onclick = function() {
 	window.open("https://archive.org/details/"+tracks[select.selectedIndex].id)
+}
+
+volslider.oninput = function() {
+	player.volume = volslider.value / 100;
 }
 
 //THIS ONLY WORKS FOR ARCHIVE.ORG FILES --------------------------------
